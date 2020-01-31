@@ -20,10 +20,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'my-lazy-app'`, () => {
+  it(`should have as title 'My Lazy App'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('my-lazy-app');
+    expect(app.title).toEqual('My Lazy App');
   });
 
   it('should render title', () => {

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { KnoraApiConnectionToken } from '@knora/core';
+import { KnoraApiConnection, ReadResource, ReadTextValueAsString, ReadProject, ApiResponseData, ProjectsResponse } from '@knora/api';
 
 @Component({
   selector: 'mla-projects',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
-  constructor() { }
+  projectList: ReadProject[];
 
-  ngOnInit() {
+  constructor(@Inject(KnoraApiConnectionToken) private knoraApiConnection: KnoraApiConnection) { }
+
+  ngOnInit(): void {
+
+    this.knoraApiConnection.admin.projectsEndpoint.getProjects().subscribe(
+      (response: ApiResponseData<ProjectsResponse>) => {
+        this.projectList = response.body.projects;
+      },
+      err => {
+        console.error(err);
+      }
+    );
+
   }
 
 }

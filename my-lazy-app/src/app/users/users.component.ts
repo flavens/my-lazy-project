@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { KnoraApiConnectionToken } from '@knora/core';
+import { KnoraApiConnection, ReadUser, ApiResponseData, UsersResponse } from '@knora/api';
 
 @Component({
   selector: 'mla-users',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
-  constructor() { }
+  userList: ReadUser[];
 
-  ngOnInit() {
+  constructor(@Inject(KnoraApiConnectionToken) private knoraApiConnection: KnoraApiConnection) { }
+
+  ngOnInit(): void {
+    this.knoraApiConnection.admin.usersEndpoint.getUsers().subscribe(
+      (response: ApiResponseData<UsersResponse>) => {
+        this.userList = response.body.users;
+      },
+      err => {
+        console.error(err);
+      }
+    );
   }
 
 }

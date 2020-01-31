@@ -1,1 +1,5 @@
-<p>projects works!</p>
+<p>Knora project list</p>
+
+<ul *ngFor="let p of projectList">
+    <li>{{p.shortname}} ({{p.shortcode}})</li>
+</ul>

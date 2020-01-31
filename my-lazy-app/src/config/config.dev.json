@@ -1,0 +1,14 @@
+{
+    "knora": {
+        "apiProtocol": "http",
+        "apiHost": "0.0.0.0",
+        "apiPort": 3333,
+        "apiPath": "",
+        "jsonWebToken": "",
+        "logErrors": true
+    },
+    "app": {
+        "name": "My Lazy App",
+        "url": "0.0.0.0:4200"
+    }
+}
