@@ -4,8 +4,9 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { KuiCoreModule, KuiConfigToken, KnoraApiConfigToken, KnoraApiConnectionToken } from '@knora/core';
+import { ColorPickerModule } from 'ngx-color-picker';
 
-import {AppInitService} from './app-init.service';
+import { AppInitService } from './app-init.service';
 
 export function initializeApp(appInitService: AppInitService) {
   return (): Promise<any> => {
@@ -20,7 +21,8 @@ export function initializeApp(appInitService: AppInitService) {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    KuiCoreModule
+    KuiCoreModule,
+    ColorPickerModule
   ],
   providers: [
     AppInitService,

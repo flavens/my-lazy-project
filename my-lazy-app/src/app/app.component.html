@@ -6,4 +6,13 @@
 <button routerLink="/user-list">Users</button>
 <button routerLink="">Home</button>
 
+<br><br>
+
+<div>
+  <span>
+    <input [(colorPicker)]="color" [style.background]="color" />
+  </span>
+  <span>{{color}}</span>
+</div>
+
 <router-outlet></router-outlet>
