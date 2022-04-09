@@ -21,7 +21,7 @@
     "@angular/router": "~8.2.14",
     "@knora/api": "^0.2.0",
     "@knora/core": "^10.0.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ngx-color-picker": "^9.0.0",
     "rxjs": "~6.4.0",
     "semver": "^7.1.2",
